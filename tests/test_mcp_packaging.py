@@ -14,7 +14,7 @@ else:
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_PACKAGE_VERSION = "0.4.2"
+EXPECTED_PACKAGE_VERSION = "0.4.3"
 PACKAGE_VERSION = tomllib.loads(
     (ROOT / "pyproject.toml").read_text(encoding="utf-8")
 )["project"]["version"]

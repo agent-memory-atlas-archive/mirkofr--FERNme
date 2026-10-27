@@ -2,6 +2,16 @@
 
 All notable changes to FERNme. Pre-1.0: anything may change (semver 0.y.z).
 
+## [0.4.3] - 2026-10-27
+
+### Added: meaning search (optional)
+- `fernme.semantic`: local multilingual sentence embeddings on the CPU, so a note is
+  found when the question uses other words or another language. Opt-in extra
+  `fernme[semantic]` (onnxruntime + tokenizers) and `fernme-model fetch`, which
+  downloads the model at a pinned revision and checks its SHA-256. `load()` returns
+  `None` without them, so hosts keep keyword search. `hybrid()` blends keyword and
+  meaning scores. See docs/semantic.md.
+
 ## [0.4.2] - 2026-10-01
 
 ### Fixed

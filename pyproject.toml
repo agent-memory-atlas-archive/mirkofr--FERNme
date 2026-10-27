@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fernme"
-version = "0.4.2"
+version = "0.4.3"
 description = "FERNme - a user-owned memory layer for AI agents: zero-LLM deterministic core with optional human-approved enrichment."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -34,6 +34,8 @@ viz = ["matplotlib>=3.7"]
 # FERNmark (document conversion) is not on PyPI, and PyPI refuses packages whose
 # dependencies point at a git URL, so it is installed directly (see README).
 media = ["Pillow>=10"]
+# Meaning search across wording and languages (fernme.semantic); then run `fernme-model fetch`.
+semantic = ["onnxruntime>=1.17", "tokenizers>=0.15"]
 dev = ["pytest>=7.4", "httpx>=0.27", "tomli>=2.0; python_version < '3.11'"]
 # Postgres-backed tests only; pgserver has no Windows wheel, so it's gated by platform
 # and test_postgres.py skips automatically when these aren't installed.
@@ -43,6 +45,7 @@ pgtest = ["psycopg[binary]>=3.1", "pgserver>=0.1; sys_platform != 'win32'"]
 fernme-mcp = "fernme.api.mcp_server:main"
 fernme-ui = "fernme.api.serve:main"
 fernme-migrate = "fernme.store.migrate:main"
+fernme-model = "fernme.semantic:main"
 
 [project.urls]
 Homepage = "https://fernme.dev"

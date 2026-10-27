@@ -350,6 +350,9 @@ the UI process when you want the agent and graph to use the same memory. Optiona
 `FERNME_SITE` and `FERNME_USER` set the profile tools use, and lock MCP tools to it (see Agent safety below).
 For the graph UI dependencies, install `pip install "fernme[ui]"`.
 
+For meaning search across wording and languages (local model, opt-in), install
+`pip install "fernme[semantic]"` and run `fernme-model fetch`; see [docs/semantic.md](docs/semantic.md).
+
 Two plugins live under `packaging/` (Claude Code / Cowork and Codex layouts):
 
 | plugin | what it adds | MCP tools | tool-description tokens* |
@@ -374,9 +377,9 @@ The shipped configs run:
 
 ```bash
 # fernme-memory
-uvx --from "fernme[mcp] @ git+https://github.com/mirkofr/FERNme@v0.4.2" fernme-mcp --tools core
+uvx --from "fernme[mcp] @ git+https://github.com/mirkofr/FERNme@v0.4.3" fernme-mcp --tools core
 # fernme-docs (needs the FERNmark package)
-uvx --with "<fernmark package>" --from "fernme[mcp] @ git+https://github.com/mirkofr/FERNme@v0.4.2" fernme-mcp --tools documents,photos
+uvx --with "<fernmark package>" --from "fernme[mcp] @ git+https://github.com/mirkofr/FERNme@v0.4.3" fernme-mcp --tools documents,photos
 ```
 
 `fernme-mcp --tools` accepts `core`, `documents`, `photos`, `all`, or `auto`
@@ -400,7 +403,7 @@ Every consent request also appears in the FERNme app's Review queue, where you c
 approve or deny it; `FERNME_CONSENT_MODE=inbox` makes that the only way to grant
 consent (the default for remote agents).
 
-The plugins are pinned to the release tag `v0.4.2`, so external testers get the
+The plugins are pinned to the release tag `v0.4.3`, so external testers get the
 same server build once the owner pushes that tag. See `docs/mcp.md` for local
 development alternatives.
 
